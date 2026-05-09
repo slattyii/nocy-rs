@@ -1,3 +1,5 @@
+<div align="center">
+
 # 🎵 nocy
 
 **một cái music player. chạy được trên máy tui. máy bạn thì... may rủi.**
@@ -7,14 +9,7 @@
 ![Works on My Machine](https://img.shields.io/badge/works%20on-my%20machine-brightgreen?style=flat-square)
 ![Vibes](https://img.shields.io/badge/vibes-immaculate-ff69b4?style=flat-square)
 
-<!--
-  THÊM SCREENSHOT VÀO ĐÂY!
-  Gợi ý: dùng `vhs` để record terminal (https://github.com/charmbracelet/vhs)
-  hoặc chụp màn hình rồi để vào thư mục assets/ trong repo
-  sau đó thay dòng dưới:
--->
-
-![nocy demo](assets/demo.gif)
+![nocy screenshot](assets/screenshot.png)
 
 </div>
 
@@ -24,20 +19,7 @@
 
 `nocy` là một TUI music player viết bằng Rust, chạy thẳng trong terminal. Không cần GUI, không cần electron ngốn 2GB RAM, không cần gì cả ngoài một cửa sổ terminal và đôi tai biết nghe nhạc.
 
-Stream nhạc từ web, phát ngay trong terminal. Đơn giản vậy thôi.
-
-```
-┌─────────────────────────────────────────────┐
-│  nocy — now playing                         │
-│                                             │
-│  ♪  Tên bài hát hay ho nào đó              │
-│     Artist • Album                          │
-│                                             │
-│  ━━━━━━━━━━━━━━━━━━━━━━━━━────  2:34/4:12  │
-│                                             │
-│  [q]uit  [space] pause  [n]ext  [p]rev      │
-└─────────────────────────────────────────────┘
-```
+Stream nhạc từ SoundCloud, phát ngay trong terminal, có queue, có shuffle, có album art mờ mờ kiểu lofi cho đủ vibe.
 
 ---
 
@@ -54,8 +36,7 @@ Stream nhạc từ web, phát ngay trong terminal. Đơn giản vậy thôi.
 
 ### yêu cầu
 
-- [Rust](https://rustup.rs/) — phiên bản mới nhất, không cãi
-- Edition 2024 → cần **Rust 1.85+**
+- [Rust](https://rustup.rs/) — edition 2024, cần **Rust 1.85+**
 - Một terminal không quá cổ lỗ sĩ
 
 ### build
@@ -72,16 +53,43 @@ Lần đầu build sẽ lâu vì Rust phải compile mấy chục crates. Đi ph
 
 ---
 
+## layout
+
+```
+nocy v0.0.1 internal  |  Found 50 Tracks
+┌── Nocy Nocy ───────────────────────────────────────┐  ┌── Playing ────────────────┐
+│  Opalite                                           │  │                           │
+├── Board ───────────────────────────────────────────┤  │       Opalite             │
+│   1.  The Fate of Ophelia        SoundCloud  00:30 │  │       Taylor Swift        │
+│ ▶ 2.  Opalite                    SoundCloud  00:30 │  │                           │
+│ # 3.  Wildest Dreams             SoundCloud  00:30 │  │  ██████████████░  00:28   │
+│ # 4.  Love Story (Taylor's Ver.) SoundCloud  00:30 │  │  vol 100%  00:30   nocy   │
+│   5.  Cruel Summer               SoundCloud  00:30 │  ├── Queue  1h 59m 58s ──────┤
+│   6.  Taylor Swift - The Fate... SoundCloud  03:36 │  │ ▶ Wildest Dreams          │
+│   ...                                              │  │   Love Story              │
+│                                                    │  │   Cruel Summer            │
+└────────────────────────────────────────────────────┘  │   ...                     │
+                                                        └───────────────────────────┘
+ Del quit  /  search  ↑↓ navigate  Shift ↑↓ reorder  Ctrl a/z add/remove all
+ Ctrl r shuffle board  Ctrl Alt r shuffle queue  Space pause/resume  ~ queue
+```
+
+---
+
 ## keybindings
 
-| Phím      | Tác dụng                             |
-| --------- | ------------------------------------ |
-| `Space`   | Play / Pause                         |
-| `n`       | Bài tiếp theo                        |
-| `p`       | Bài trước                            |
-| `↑` / `↓` | Di chuyển trong danh sách            |
-| `Enter`   | Phát bài được chọn                   |
-| `q`       | Thoát (và trở lại với cuộc đời thực) |
+| Phím                  | Tác dụng                   |
+| --------------------- | -------------------------- |
+| `Space`               | Pause / Resume             |
+| `/`                   | Tìm kiếm                   |
+| `↑` / `↓`             | Di chuyển trong danh sách  |
+| `Shift ↑` / `Shift ↓` | Đổi thứ tự track (reorder) |
+| `Ctrl a`              | Add all vào queue          |
+| `Ctrl z`              | Remove all khỏi queue      |
+| `Ctrl r`              | Shuffle board              |
+| `Ctrl Alt r`          | Shuffle queue              |
+| `~`                   | Mở / đóng queue            |
+| `Del`                 | Thoát                      |
 
 ---
 
@@ -109,28 +117,6 @@ Lần đầu build sẽ lâu vì Rust phải compile mấy chục crates. Đi ph
 
 ---
 
-## screenshot
-
-> _Sắp có. Đang lười._
-
-<!--
-  TODO: thêm ảnh thật vào đây. Gợi ý cách chụp đẹp:
-
-  1. Dùng vhs (https://github.com/charmbracelet/vhs):
-     - Viết file .tape mô tả thao tác
-     - Chạy: vhs demo.tape
-     - Output ra demo.gif xịn sò
-
-  2. Dùng asciinema (https://asciinema.org/):
-     - asciinema rec demo.cast
-     - Chơi một lúc rồi Ctrl+D
-     - Upload lên asciinema.org hoặc convert sang gif bằng agg
-
-  3. Chụp màn hình bình thường cũng được, đừng có màn hình tối đen ngủ gật
--->
-
----
-
 ## license
 
 Không có license nghĩa là bản quyền thuộc về tui. Nhưng thôi, dùng đi, tui không quan tâm lắm.
@@ -142,3 +128,5 @@ Nếu bạn fork về làm triệu phú thì... kể tui nghe với.
 <div align="center">
 
 _made with ♥ and too much caffeine_
+
+</div>
